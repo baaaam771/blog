@@ -16,23 +16,71 @@
     <br />
   </div>
   {%endfor%} {#First Previous 3of4 Next Last#}
+  <!--
   <div class="container">
-    <!--First Previous-->
+    {#First Previous#}
     {%if posts.has_previous%}
     <a href="?page=1">First</a>
     <a href="?page={{posts.previous_page_number}}">Previous</a>
     {%endif%}
 
-    <!--3 of 4-->
+    {#3 of 4#}
     <span>{{posts.number}}</span>
     <span>of</span>
     <span>{{posts.paginator.num_pages}}</span>
 
-    <!--Next Last-->
+    {#Next Last#}
     {%if posts.has_next%}
     <a href="?page={{posts.next_page_number}}">Next</a>
     <a href="?page={{posts.paginator.num_pages}}">Last</a>
     {%endif%}
+  </div>
+-->
+  <div class="container">
+    <div class="row text-center">
+      <div class="col text-center">
+        <div
+          class="btn-toolbar"
+          role="toolbar"
+          aria-label="Toolbar with button groups"
+        >
+          {%if posts.has_previous%}
+          <div class="btn-group mr-2" role="group" aria-label="First group">
+            <a class="btn btn-primary" href="?page=1" role="button">First</a>
+            <a
+              class="btn btn-primary"
+              href="?page={{posts.previous_page_number}}"
+              role="button"
+              >Previous</a
+            >
+          </div>
+          {%endif%}
+          <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <button type="button" class="btn btn-info">
+              <span>{{posts.number}}</span>
+              <span>of</span>
+              <span>{{posts.paginator.num_pages}}</span>
+            </button>
+          </div>
+          {%if posts.has_next%}
+          <div class="btn-group" role="group" aria-label="Third group">
+            <a
+              class="btn btn-primary"
+              href="?page={{posts.next_page_number}}"
+              role="button"
+              >Next</a
+            >
+            <a
+              class="btn btn-primary"
+              href="?page={{posts.paginator.num_pages}}"
+              role="button"
+              >Last</a
+            >
+          </div>
+          {%endif%}
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 {%endblock%}
