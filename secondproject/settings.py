@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -40,6 +41,14 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'portfolio.apps.PortfolioConfig',
     'accounts.apps.AccountsConfig',
+
+    # allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    #provider (구글) (페이스북 카톡 깃헙)
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +142,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #media 디렉토리를 base 디렉토리로 설정해 미디어 파일 모으겠다.
 
 MEDIA_URL ='/media/'
+
+AUTHENTICATION_BACKENDS = (
+    #need to login by username in Django admin, regardless of 'allauth'
+    'django.contrib.auth.backends.ModelBackend',
+
+    #'allauth' specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+)
+
+SITE_ID = 1 
+
+LOGIN_REDIRECT_URL = '/'
+
+#기타 설정들

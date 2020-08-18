@@ -66,6 +66,9 @@
             <a class="dropdown-item" href="{% url 'signup' %}">회원가입</a>
             <a class="dropdown-item" href="{% url 'login' %}">로그인</a>
             <a class="dropdown-item" href="{% url 'logout' %}">로그아웃</a>
+            <a class="dropdown-item" href="{% url 'googlelogin' %}"
+              >구글 로그인</a
+            >
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
@@ -76,7 +79,7 @@
             href="#"
             tabindex="-1"
             aria-disabled="true"
-            >Disabled</a
+            >{{user.username}}님 반갑습니다</a
           >
         </li>
       </ul>
