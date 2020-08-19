@@ -30,6 +30,5 @@ def logout(request):
         return redirect('home')
     return render(request, 'login.html')
 
-def googlelogin(request):
-    return render(request, 'googlelogin.html')
+
    

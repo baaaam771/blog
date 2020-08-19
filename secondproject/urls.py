@@ -26,5 +26,6 @@ urlpatterns = [
     path('blog/',include('blog.urls')),
     path('portfolio/', portfolio.views.portfolio, name="portfolio"),
     path('accounts/', include('accounts.urls')),
-    path('SNSaccounts/', include('allauth.urls')),
+    #path('SNSaccounts/', include('SNSaccounts.urls')),
+    #path('socialaccounts/', include('allauth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
