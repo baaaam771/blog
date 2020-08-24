@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'portfolio.apps.PortfolioConfig',
     'accounts.apps.AccountsConfig',
-    'SNSaccounts.apps.SnsaccountsConfig',
+    
 
    
 ]
@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'secondproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER': 'postgres',
+        'PASSWORD': 'lbg630517',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -138,6 +142,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL ='/media/'
 
+SITE_ID = 1
+#admin 사이트 연결이 안되서 추가
 
 
 #기타 설정들
